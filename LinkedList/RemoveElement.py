@@ -12,12 +12,11 @@ class Solution(object):
         prev = None
         curr = head
         while curr is not None:
-            while curr.val is val:
+            if curr.val is val:
                 if prev is None:
                     head = curr.next
                 else:
-                    prev.next = curr.next
-                break
+                    prev.next = curr.next       
             else:
                 prev = curr
             curr = curr.next
