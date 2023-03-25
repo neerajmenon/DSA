@@ -1,6 +1,5 @@
 #LC-203 
 #Remove element with given value from list
-#https://stackoverflow.com/questions/3295938/else-clause-on-python-while-statement
 
 # Definition for singly-linked list.
 # class ListNode(object):
