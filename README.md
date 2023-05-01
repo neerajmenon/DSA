@@ -1,6 +1,6 @@
-# DSA
+# Data Structures & Algorithms
 
-Collection of data structures & algorithms problems from everywhere!
+A compilation of data structures & algorithms problems from everywhere!
 
 Included
 --LeetCode
