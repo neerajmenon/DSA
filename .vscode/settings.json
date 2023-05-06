@@ -1,7 +1,10 @@
 {
     "files.associations": {
-        "__locale": "cpp",
-        "bitset": "cpp",
-        "vector": "cpp"
+        "string": "cpp",
+        "iosfwd": "cpp",
+        "vector": "cpp",
+        "iterator": "cpp",
+        "__hash_table": "cpp",
+        "unordered_map": "cpp"
     }
 }
