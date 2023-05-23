@@ -17,6 +17,13 @@ def removeNodeAtPosition(llist, position):
     curr.next = curr.next.next 
     return head
 
+def deleteNode(self, node):
+        if not node or not node.next:
+            return
+
+        node.val = node.next.val
+        node.next = node.next.next
+        
 def removeNodeWithVal(self, head, val):
         prev = None
         curr = head
@@ -153,14 +160,3 @@ def removeNthFromEnd(self, head, k):
         
         return head
     
-def removeMiddle(self, head):
-        if head.next == None:
-            return None
-
-        slow, fast = head, head.next.next
-        while fast!=None and fast.next!=None:
-            fast = fast.next.next
-            slow = slow.next
-        slow.next = slow.next.next
-
-        return head

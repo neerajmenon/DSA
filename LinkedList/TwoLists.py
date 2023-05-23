@@ -19,7 +19,7 @@ def compare_lists(p, q):
 
 """
 
-def findMergeNode(p, q):
+def findIntersection(p, q):
   hs = set()
   while p:
     hs.add(p)

@@ -42,7 +42,7 @@ def reorderList(self, head):
         res.next = None
         return head
     
-def findDuplicate(self, nums: List[int]) -> int:
+def findDuplicate(self, nums):
         slow, fast = 0, 0
         while True:
             slow = nums[slow]
