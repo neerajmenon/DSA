@@ -39,3 +39,49 @@ def insertNodeAtPosition(llist, data, position):
     curr.next = tmp
     tmp.next = tmp2
     return head
+
+
+def sortedInsertSingleLL(head, data):
+    new_node = Node(data)
+
+    # Handle the case where the new node should be the new head
+    if not head or data < head.data:
+        new_node.next = head
+        return new_node
+
+    curr = head
+
+    # Traverse the linked list to find the appropriate position to insert the new node
+    while curr.next and curr.next.data < data:
+        curr = curr.next
+
+    new_node.next = curr.next
+    curr.next = new_node
+
+    return head
+
+
+def sortedInsertDoubleLL(head, data):
+    new_node = Node(data)
+    
+    if not head:
+        return new_node
+    
+    if data < head.data:
+        new_node.next = head
+        head.prev = new_node
+        return new_node
+    
+    curr = head
+    
+    while curr.next and curr.next.data < data:
+        curr = curr.next
+    
+    new_node.prev = curr
+    new_node.next = curr.next
+    
+    if curr.next:
+        curr.next.prev = new_node
+    curr.next = new_node
+    
+    return head

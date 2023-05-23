@@ -114,6 +114,22 @@ def removeAllDuplicatesSet(self, head):
 
         return dummy.next
 
+def getNthNodeFromEnd(head, k):
+    p,q = head,head
+    cur  = 0 
+    while q and cur < k+1: # k+1 or k depending on the indexing convention. is tail 0 or 1?
+      cur+=1
+      q = q.next
+      
+    if not q:
+      return p.data
+    
+    while q:
+      p = p.next
+      q = q.next
+      
+    return p.data  
+
     
 def removeNthFromEnd(self, head, k):
         p = head
@@ -121,7 +137,7 @@ def removeNthFromEnd(self, head, k):
         prev = None
         count = 0
         
-        while q and count < k:
+        while q and count < k: # k+1 or k depending on the indexing convention. is tail 0 or 1?
             q = q.next
             count += 1
         

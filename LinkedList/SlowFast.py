@@ -1,10 +1,13 @@
-# Definition for singly-linked list.
-# class ListNode(object):
-#     def __init__(self, val=0, next=None):
-#         self.val = val
-#         self.next = next
-class Solution(object):
-    def reorderList(self, head):
+def hasCycle(self, head):
+        slow,fast = head,head
+        while fast!=None and fast.next!=None:
+            slow = slow.next
+            fast = fast.next.next
+            if slow == fast:
+                return True
+        return False
+    
+def reorderList(self, head):
         
         st = []
         slow , fast = head, head
@@ -26,4 +29,3 @@ class Solution(object):
             res = temp
         res.next = None
         return head
-        
