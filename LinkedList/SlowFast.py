@@ -7,6 +7,18 @@ def hasCycle(self, head):
                 return True
         return False
     
+def removeMiddle(self, head):
+        if head.next == None:
+            return None
+
+        slow, fast = head, head.next.next
+        while fast!=None and fast.next!=None:
+            fast = fast.next.next
+            slow = slow.next
+        slow.next = slow.next.next
+
+        return head
+    
 def reorderList(self, head):
         
         st = []
@@ -29,3 +41,18 @@ def reorderList(self, head):
             res = temp
         res.next = None
         return head
+    
+def findDuplicate(self, nums: List[int]) -> int:
+        slow, fast = 0, 0
+        while True:
+            slow = nums[slow]
+            fast = nums[nums[fast]]
+            if slow == fast:
+                break
+
+        slow2 = 0
+        while True:
+            slow = nums[slow]
+            slow2 = nums[slow2]
+            if slow == slow2:
+                return slow
