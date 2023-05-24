@@ -3,6 +3,17 @@ def maxDepth(self, root):
             return 1 + max(self.maxDepth(root.left),self.maxDepth(root.right))
         return 0
 
+class Solution:
+    def minDepth(self, root):
+        if root:
+            if root.left is None:
+                return 1 + self.minDepth(root.right)
+
+            if root.right is None:
+                return 1 + self.minDepth(root.left)
+            return 1 + min(self.minDepth(root.left),self.minDepth(root.right))
+        return 0
+    
 def isBalanced(self, root):
 
         def height(root):
@@ -30,3 +41,4 @@ def diameterOfBinaryTree(self, root):
 
         dfs(root)
         return res
+    
