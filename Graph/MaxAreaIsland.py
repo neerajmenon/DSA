@@ -1,24 +1,28 @@
 class Solution:
     def maxAreaOfIsland(self,grid):
-        def dfs(i, j):
-            if i < 0 or i >= len(grid) or j < 0 or j >= len(grid[0]) or grid[i][j] == 0:
-                return 0
 
-            grid[i][j] = 0  # Mark the cell as visited
-
-            area = 1
-            area += dfs(i+1, j)  # Check the cell to the south
-            area += dfs(i-1, j)  # Check the cell to the north
-            area += dfs(i, j+1)  # Check the cell to the east
-            area += dfs(i, j-1)  # Check the cell to the west
-
-            return area
+        if not grid or not grid[0]:
+            return 0
 
         maxArea = 0
+        visit = set()
+        rows, cols = len(grid), len(grid[0])
 
-        for i in range(len(grid)):
-            for j in range(len(grid[0])):
-                if grid[i][j] == 1:
-                    maxArea = max(maxArea, dfs(i, j))
+        def dfs(r, c):
+            if r not in range(rows) or c not in range(cols) or grid[r][c] == 0 or (r, c) in visit:
+                return 0
 
+            visit.add((r, c))
+            area = 1
+            directions = [[0, 1], [0, -1], [1, 0], [-1, 0]]
+            for dr, dc in directions:
+                area += dfs(r + dr, c + dc)
+            return area
+
+        for r in range(rows):
+            for c in range(cols):
+                if grid[r][c] == 1 and (r, c) not in visit:
+                    area = dfs(r, c)
+                    maxArea = max(area,maxArea)
         return maxArea
+
